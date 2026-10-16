@@ -1,6 +1,6 @@
 # 个人实践
 
-先阅读 [Codex 用法与个人理解](codex-playbook.md)。这里的建议是准备尝试的方法，不表示已经实施或验证。
+先从 [我们自己的方法库](../knowledge/README.md) 选择一个实际问题，再结合 [Codex 用法与个人理解](codex-playbook.md)。可用方法与已验证经验分别记录，不能因为方法写完整就视为已经验证。
 
 真实实验记录放在 `practice/experiments/`，使用 [实践模板](../templates/experiment.md)。文件名建议 `YYYY-MM-DD-topic.md`。
 

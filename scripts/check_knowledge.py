@@ -34,6 +34,10 @@ def main():
         "state/learning-state.md", "practice/codex-playbook.md",
         "prompts/resume.md", "prompts/update.md", "prompts/apply.md",
         "templates/lesson.md", "templates/experiment.md", "sharing/README.md",
+        "knowledge/README.md", "knowledge/coverage.json",
+        "knowledge/01-task-and-loop.md", "knowledge/02-context-and-rules.md",
+        "knowledge/03-feedback-and-quality.md", "knowledge/04-state-and-continuity.md",
+        "knowledge/05-skills-and-examples.md", "knowledge/06-environment-and-improvement.md",
     ]
     for name in required:
         path = ROOT / name
@@ -90,6 +94,36 @@ def main():
         require(entry.get("title", "") in content, f"{key} 笔记未包含原课标题")
         require(entry.get("url", "") in content, f"{key} 笔记未包含来源链接")
 
+    # 每项已收录来源都应有可读取的方法入口，避免仅增加课程目录。
+    try:
+        coverage = json.loads(read(ROOT / "knowledge/coverage.json"))
+        mappings = coverage["mappings"]
+        require(isinstance(mappings, dict), "方法覆盖记录 mappings 必须为对象")
+        if isinstance(mappings, dict):
+            keys = {entry["key"] for entry in entries}
+            require(set(mappings) == keys, "课程清单与方法覆盖记录的条目不一致")
+            require(coverage.get("source_snapshot_at") == index.get("snapshot_checked_at"),
+                    "方法覆盖记录与课程来源快照日期不一致")
+            for key, targets in mappings.items():
+                require(isinstance(targets, list) and bool(targets), f"{key} 没有方法入口")
+                if not isinstance(targets, list):
+                    continue
+                for target in targets:
+                    if not isinstance(target, str):
+                        ERRORS.append(f"{key} 方法入口不是文本")
+                        continue
+                    parsed = urlsplit(target)
+                    destination = (ROOT / unquote(parsed.path)).resolve()
+                    valid = (not parsed.scheme and not parsed.netloc
+                             and destination.is_relative_to(ROOT / "knowledge")
+                             and destination.suffix == ".md" and destination.is_file())
+                    require(valid, f"{key} 方法入口无效：{target}")
+                    if valid:
+                        require(bool(parsed.fragment) and unquote(parsed.fragment) in anchors(destination),
+                                f"{key} 方法锚点不存在：{target}")
+    except (OSError, ValueError, KeyError, TypeError) as exc:
+        ERRORS.append(f"方法覆盖记录无法读取：{exc}")
+
     md_files = sorted(ROOT.rglob("*.md"))
     links_checked = 0
     for path in md_files:
@@ -115,7 +149,7 @@ def main():
             links_checked += 1
 
     if not ERRORS:
-        print(f"通过：{len(entries)} 条课程记录，{len(md_files)} 个 Markdown 文件，{links_checked} 个本地链接。")
+        print(f"通过：{len(entries)} 条课程及其方法入口，{len(md_files)} 个 Markdown 文件，{links_checked} 个本地链接。")
         print("本检查仅验证结构与入口；内容准确性、来源更新及实践有效性需要另行核实。")
     return finish()
 

@@ -1,0 +1,31 @@
+{
+  "compiled_at": "2026-10-16",
+  "source_snapshot_at": "2026-10-15",
+  "meaning": "已将来源知识整合为可独立使用的方法，不代表个人实验已经验证有效",
+  "mappings": {
+    "preface": ["knowledge/01-task-and-loop.md#task-card"],
+    "live-replay": ["knowledge/01-task-and-loop.md#choose-loop"],
+    "lesson-01": ["knowledge/01-task-and-loop.md#choose-loop"],
+    "lesson-02": ["knowledge/01-task-and-loop.md#choose-loop", "knowledge/06-environment-and-improvement.md#environment"],
+    "lesson-03": ["knowledge/01-task-and-loop.md#choose-loop"],
+    "lesson-04": ["knowledge/05-skills-and-examples.md#skill-design"],
+    "lesson-05": ["knowledge/06-environment-and-improvement.md#improvement", "knowledge/02-context-and-rules.md#context-budget"],
+    "lesson-06": ["knowledge/05-skills-and-examples.md#solidify"],
+    "lesson-07": ["knowledge/01-task-and-loop.md#task-card"],
+    "lesson-08": ["knowledge/02-context-and-rules.md#principles"],
+    "lesson-09": ["knowledge/02-context-and-rules.md#source-maintenance"],
+    "lesson-10": ["knowledge/03-feedback-and-quality.md#completion-evidence"],
+    "lesson-11": ["knowledge/02-context-and-rules.md#rule-maintenance"],
+    "lesson-12": ["knowledge/03-feedback-and-quality.md#feedback-first"],
+    "lesson-13": ["knowledge/03-feedback-and-quality.md#graded-feedback"],
+    "lesson-14": ["knowledge/02-context-and-rules.md#context-budget"],
+    "lesson-15": ["knowledge/04-state-and-continuity.md#checkpoint"],
+    "lesson-16": ["knowledge/04-state-and-continuity.md#handoff"],
+    "lesson-17": ["knowledge/04-state-and-continuity.md#state-partition"],
+    "lesson-18": ["knowledge/06-environment-and-improvement.md#environment"],
+    "lesson-19": ["knowledge/05-skills-and-examples.md#anchors"],
+    "lesson-20": ["knowledge/05-skills-and-examples.md#skill-design"],
+    "lesson-21": ["knowledge/05-skills-and-examples.md#anchors"],
+    "lesson-22": ["knowledge/03-feedback-and-quality.md#human-judgment"]
+  }
+}

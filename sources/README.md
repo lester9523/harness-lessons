@@ -18,6 +18,8 @@
 3. **应用建议**：根据个人工作提出的可尝试方案。
 4. **实践结论**：只有在记录实际结果后才成立，目前暂无已完成对比实验。
 
+日常使用的自主方法维护在 [knowledge/README.md](../knowledge/README.md) 及其主题文档，不依赖重新阅读原课。[覆盖关系](../knowledge/coverage.json) 记录每项来源对应哪些方法；它证明结构上已建立整理关系，不能证明内容必然准确或方法已通过个人验证。
+
 ## 工具文档
 
 个人讨论曾于 2026-10-16 核对 OpenAI 官方 [Customization](https://learn.chatgpt.com/docs/customization/overview) 和 [Developer commands](https://learn.chatgpt.com/docs/developer-commands)。知识库中的工具映射是概念说明，不保证未来版本的路径、命令或权限行为不变。
